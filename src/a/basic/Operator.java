@@ -35,6 +35,11 @@ public class Operator {
         System.out.println("strA == strB => " + (strA == strB));
         System.out.println("strA == strB => " + (strA == strC));
 
-        System.out.println("strA == strC => " + (strA == strC));
+        System.out.println(strA.equals(strC));
+
+        boolean boolA = true;
+        boolean boolB = false;
+
+        System.out.println(boolA || boolB);
     }
 }
