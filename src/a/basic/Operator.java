@@ -41,5 +41,14 @@ public class Operator {
         boolean boolB = false;
 
         System.out.println(boolA || boolB);
+
+        // 단락평가
+        int myX = 0;
+        if (myX != 0 && x > -1) {
+            System.out.println("실행되나요?");
+        }
+
+
+
     }
 }
