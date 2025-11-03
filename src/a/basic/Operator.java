@@ -48,6 +48,14 @@ public class Operator {
             System.out.println("실행되나요?");
         }
 
+        //삼항 연산자
+        int age = 20;
+        String adult = (age > 20) ? "성인" : "청소년";
+        System.out.println(adult);
+
+        int intA = 14;
+        int intB = 6;
+        System.out.println(intA & intB);
 
 
     }
