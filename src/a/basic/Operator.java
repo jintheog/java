@@ -57,6 +57,9 @@ public class Operator {
         int intB = 6;
         System.out.println(intA & intB);
 
-
+        int intC = 123456;
+        System.out.println(intC << 1);
+        System.out.println(intC >> 1);
+        System.out.println(intC >>> 1);
     }
 }
