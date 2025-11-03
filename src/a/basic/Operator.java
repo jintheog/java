@@ -1,0 +1,40 @@
+package a.basic;
+
+public class Operator {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+
+        System.out.println(a + b);
+        System.out.println(a % b);
+
+        int x = 10;
+        int y = 3;
+
+        System.out.println(x / y);
+
+        double result = (double)x / y;
+        System.out.println(result);
+
+        //++x, --x => 증감 이후에 출력, System.out.println("x = " + x++); //출력 이후에 증감
+        System.out.println("x = " + ++x);
+        System.out.println("x = " + x);
+
+        // x+=5 => x = x + 5
+        x += 5;
+        System.out.println("x += 5 =>" + x);
+
+        int bigNum = 999;
+        int smallNum = 1;
+
+        System.out.println(bigNum > smallNum);
+        String strA = "hello";
+        String strB = "hello";
+        String strC = new String("hello");
+
+        System.out.println("strA == strB => " + (strA == strB));
+        System.out.println("strA == strB => " + (strA == strC));
+
+        System.out.println("strA == strC => " + (strA == strC));
+    }
+}
