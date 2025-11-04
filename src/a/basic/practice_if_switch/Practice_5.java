@@ -1,4 +1,4 @@
-package a.basic.if_switch_practice;
+package a.basic.practice_if_switch;
 
 import java.util.Scanner;
 

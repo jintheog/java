@@ -98,10 +98,16 @@ public class For {
             }
             System.out.println(z);
         }
+        System.out.println();
+        // 레이블
 
+        outer:
         for(int x = 2; x < 10; x++) {
             for(int y = 1; y < 10; y++){
                 System.out.println(x + "X" + y + "=" + (x*y));
+                if (x>4){
+                    break outer;
+                }
             }
         }
 
