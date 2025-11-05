@@ -1,0 +1,24 @@
+package b.oop.practice_oop;
+
+public class Car {
+    String model;
+    int speed;
+
+    public Car(String model, int speed) {
+        this.model = model;
+        this.speed = speed;
+    }
+
+    public void accelerate() {
+        speed += 10;
+    }
+
+    public void brake() {
+        speed -= 10;
+    }
+
+    public void printInfo() {
+        System.out.println("모델: "+model + ", 속도: "+speed+"km/h");
+    }
+
+}
