@@ -125,6 +125,8 @@ public class Array {
 
         System.out.println();
 
+//        origin[99] = 100;
+
         int[][] mat = {{1, 2}, {3, 4}};
         System.out.println(Arrays.toString(mat));
         System.out.println(Arrays.deepToString(mat));// 재귀적으로 데이터를 문자열로 바꿈
