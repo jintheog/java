@@ -30,5 +30,11 @@ public class Main {
         System.out.println(c2.radius);
         System.out.println(c3.radius);
 
+        System.out.println("=======================");
+
+        Dog d1 = new Dog("강아지", 30, "잡");
+        System.out.println(d1.name);
+        System.out.println(d1.age);
+
     }
 }
