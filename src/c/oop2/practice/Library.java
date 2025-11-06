@@ -21,7 +21,7 @@ public class Library {
     // - bookCount 증가
     // - 배열이 가득 차면 "더 이상 책을 추가할 수 없습니다." 출력
     public void addBook(Book book){
-        if(this.bookCount == this.books.length){
+        if(this.bookCount >= this.books.length){
             System.out.println("더 이상 책을 추가할 수 없습니다");
             return;
         }
@@ -33,58 +33,94 @@ public class Library {
     // TODO: addBook(String title, String author) 메서드 오버로딩
     // - Book 객체를 생성하여 addBook(Book) 호출
     public void addBook(String title, String author){
-
+        //Book b = new Book(title, author);
+        //addBook(b);
+        addBook(new Book(title, author));
     }
 
 
     // TODO: addBook(String title, String author, int price) 메서드 오버로딩
     // - Book 객체를 생성하여 addBook(Book) 호출
     public void addBook(String title, String author, int price){
-
+//        Book b = new Book(title, author, price);
+//        addBook(b);
+        addBook(new Book(title, author, price));
     }
 
     // TODO: displayAllBooks() 메서드
     // - 모든 책의 정보를 출력 (번호 포함)
     // - 형식: "1. 제목 - 저자: 저자명, 가격: 0000원"
     public void displayAllBooks() {
-
+        for(int i = 0; i < bookCount; i++) {
+//            Book b = books[i];
+//            System.out.printf("%d. 제목 - %s 저자: %s, 가격: %d원",i+1, b.title, b.author, b.price);
+            books[i].displayInfo();
+        }
     }
 
     // TODO: searchByTitle(String keyword) 메서드
     // - 제목에 keyword가 포함된 책을 모두 출력
     // - 대소문자 구분 없이 검색 (toLowerCase() 사용)
-    public void searchByTitle(String title){
+    public void searchByTitle(String keyword){
 
+        for(int i = 0; i < bookCount; i++) {
+//            Book b = books[i];
+//            if(b.title.toLowerCase().contains(keyword.toLowerCase())) {
+//                System.out.printf("%d. 제목 - %s 저자: %s, 가격: %d원",i+1, b.title, b.author, b.price);
+//            }
+            boolean check = books[i].getTitle().toLowerCase().contains(keyword.toLowerCase());
+            if(check){
+                books[i].displayInfo();
+            }
+        }
     }
 
     // TODO: searchByAuthor(String keyword) 메서드
     // - 저자명에 keyword가 포함된 책을 모두 출력
-    public void searchByAuthor(String author){
-
+    public void searchByAuthor(String keyword){
+        for(int i = 0; i < bookCount; i++) {
+//            Book book = books[i];
+//            if(book.author.toLowerCase().contains(keyword.toLowerCase())) {
+//                System.out.printf("%d. 제목 - %s 저자: %s, 가격: %d원",i+1, book.title, book.author, book.price);
+//            }
+            boolean check = books[i].getAuthor().toLowerCase().contains(keyword.toLowerCase());
+            if(check){
+                books[i].displayInfo();
+            }
+        }
     }
 
     // TODO: getTotalPrice() 메서드
     // - 모든 책 가격의 합계 반환
-    public void getTotalPrice(){
-
+    public int getTotalPrice(){
+        int total = 0;
+        for(int i = 0; i < bookCount; i++) {
+            total += books[i].getPrice();
+        }
+        return total;
     }
 
     // TODO: getAveragePrice() 메서드
     // - 평균 가격 반환
     // - 책이 없으면 0 반환
-    public void getAveragePrice(){
-
+    public int getAveragePrice(){
+        if (bookCount == 0){
+            return 0;
+        }
+        return getTotalPrice() / bookCount;
     }
+
     // TODO: getBookCount() 메서드
     // - 현재 책의 개수 반환
-    public void getBookCount(){
-
+    public int getBookCount(){
+        return bookCount;
     }
-
 
     // TODO: applyDiscountToAll(int percent) 메서드
     // - 모든 책에 percent% 할인 적용
     public void applyDiscountToAll(int percent){
-
+        for(int i = 0; i < bookCount; i++) {
+            books[i].applyDiscount(percent);
+        }
     }
 }
