@@ -6,9 +6,10 @@ public class Main {
 
         int result = calc.add(2, 3);
         int result2 = calc.add(4, 5, 6);
-
+        int result3 = calc.add(1, 2, 3, 4, 5);
         System.out.println(result);
         System.out.println(result2);
+
 
         Person person = new Person();
         Person person2 = new Person("John", 18);

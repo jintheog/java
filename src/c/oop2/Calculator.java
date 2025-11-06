@@ -1,5 +1,7 @@
 package c.oop2;
 
+import java.util.Arrays;
+
 class Sample{
     int value;
 }
@@ -11,6 +13,16 @@ public class Calculator {
 
     int add(int a, int b, int c) {
         return a+b+c;
+    }
+
+    int add(int...numbers) { //가변인자
+//        System.out.println("Adding " + Arrays.toString(numbers));
+        int sum = 0;
+        for(int number : numbers){
+            sum += number;
+        }
+        
+        return sum;
     }
 
     // 반환값이 없는 경우
