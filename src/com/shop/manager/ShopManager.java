@@ -109,8 +109,6 @@ public class ShopManager {
     public void processOrder(Order order) {
         order.calculateTotal(this);
 
-
-
         String[] productIds = order.getProductIds();
         int[] quantities = order.getQuantities();
         int itemCount = order.getItemCount();
