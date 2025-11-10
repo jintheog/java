@@ -9,11 +9,14 @@ class Account{
     }
     void deposit(double amount){
         balance += amount;
+        System.out.println(amount + " 입금");
     }
     void withdraw(double amount){
         if(balance >= amount) {
             balance -= amount;
-        }
+            System.out.println(amount + " 출금");
+        } else System.out.println("잔액부족");
+
     }
 }
 
@@ -41,9 +44,10 @@ class CheckingAccount extends Account {
     @Override
     void withdraw(double amount) {
 
-        if(balance >= (overdraftLimit*-1)){
+        //if(balance >= (overdraftLimit*-1)){
+        if(balance + overdraftLimit >= amount) {
             balance -= amount;
-        }
+        } else System.out.println("출금 불가");
     }
 }
 
