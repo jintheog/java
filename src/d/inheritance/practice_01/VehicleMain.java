@@ -31,11 +31,16 @@ class Car extends Vehicle {
     }
     @Override
     double  calculateRentalCost(int days){
-        dailyRate *= days;
+//        dailyRate *= days;
+//        if(hasGPS){
+//            dailyRate = dailyRate + days * 10000;
+//        }
+//        return dailyRate;
+        double baseCost = super.calculateRentalCost(days);
         if(hasGPS){
-            dailyRate = dailyRate + days * 10000;
+            baseCost = baseCost + days * 10000;
         }
-        return dailyRate;
+        return baseCost;
     }
 
     @Override
@@ -57,7 +62,9 @@ class Truck extends Vehicle {
     }
     @Override
     double calculateRentalCost(int days){
-        return dailyRate = (dailyRate * days) + ((capacity * 5000)*days);
+        //return dailyRate = (dailyRate * days) + ((capacity * 5000)*days);
+        double baseCost = super.calculateRentalCost(days);
+        return baseCost+=capacity * 5000 * days;
     }
 
     @Override
