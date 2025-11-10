@@ -4,6 +4,9 @@ class Parent {
     void show() {
         System.out.println("parent!");
     }
+    final void display() {
+        System.out.println("display!");
+    }
 }
 
 class Child extends Parent {
@@ -12,6 +15,11 @@ class Child extends Parent {
     void show() {
         System.out.println("child!");
     }
+
+//    @Override
+//    void display() {
+//        System.out.println("Child display!");
+//    }
 }
 
 public class OverridingMain {
