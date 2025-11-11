@@ -10,17 +10,23 @@ class Movie{
     }
 
     public void displayInfo(){
-
+        System.out.println("Title: " + title);
+        System.out.println("Rating: " + rating);
     }
-
 }
 
-class ActionMovie extends Movie {
+class Action extends Movie {
     String specialEffects;
 
-    public ActionMovie(String title, double rating, String specialEffects) {
+    public Action(String title, double rating, String specialEffects) {
         super(title, rating);
         this.specialEffects = specialEffects;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Special Effects: " + specialEffects);
     }
 }
 
@@ -31,6 +37,12 @@ class Comedy extends Movie {
         super(title, rating);
         this.humorStyle = humorStyle;
     }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Humor Style: " + humorStyle);
+    }
 }
 
 class Drama extends Movie {
@@ -40,9 +52,25 @@ class Drama extends Movie {
         super(title, rating);
         this.theme = theme;
     }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Theme: " + theme);
+    }
 }
 public class MovieMain {
     public static void main(String[] args) {
+        Movie[] movies = {
+                new Action("어벤져스", 4.5, "최고급 CG"),
+                new Comedy("극한직업", 4.7, "상황 코미디"),
+                new Drama("기생충", 4.9, "계급 갈등")
+        };
+
+        for (Movie movie : movies) {
+            movie.displayInfo();
+        }
+
 
     }
 }
