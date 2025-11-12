@@ -28,8 +28,8 @@ public class Practice_02 {
     public static int findAfterRotation(ArrayList<Integer> list, int k, int target) {
         // 여기에 코드 작성
         if(list.contains(target)){
-            for(int i = 0; i < k; i++) {
-                int temp = list.remove(0);
+            for(int i = 0; i < k % list.size(); i++) {
+                int temp = list.removeFirst();
                 list.add(temp);
             }
             return list.indexOf(target);
