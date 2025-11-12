@@ -1,26 +1,26 @@
 package e.generic.practice_01;
 class Calculator<T>{
-    private T value;
-    private T value2;
+    private T first;
+    private T second;
     public Calculator(T value, T value2){
-        this.value = value;
-        this.value2 = value2;
+        this.first = value;
+        this.second = value2;
     }
 
     public T getFirst() {
-        return value;
+        return first;
     }
 
     public T getSecond() {
-        return value2;
+        return second;
     }
 
     public void printBoth() {
-        System.out.println("첫 번째: "+value+", 두번째: "+value2);
+        System.out.println("첫 번째: "+ first +", 두번째: "+ second);
     }
 
     public boolean areEqual() {
-        return  value.equals(value2);
+        return  first.equals(second);
     }
 
 }
