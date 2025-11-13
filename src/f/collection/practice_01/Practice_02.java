@@ -25,15 +25,35 @@ public class Practice_02 {
         System.out.println("2의 인덱스: " + result3);
     }
 
+    public static void rotateLeft(ArrayList<Integer> list, int k){
+        if(list == null || list.isEmpty()) {
+            return;
+        }
+
+        int size = list.size();
+        k = k % size;
+
+        for(int i = 0; i < k; i++) {
+            int first = list.remove(0);
+            list.add(first);
+        }
+    }
+
     public static int findAfterRotation(ArrayList<Integer> list, int k, int target) {
         // 여기에 코드 작성
-        if(list.contains(target)){
-            for(int i = 0; i < k % list.size(); i++) {
-                int temp = list.removeFirst();
-                list.add(temp);
-            }
-            return list.indexOf(target);
+//        if(list.contains(target)){
+//            for(int i = 0; i < k % list.size(); i++) {
+//                int temp = list.removeFirst();
+//                list.add(temp);
+//            }
+//            return list.indexOf(target);
+//        }
+//        return -1;
+        if(list == null || list.isEmpty()) {
+            return -1;
         }
-        return -1;
+        rotateLeft(list, k);
+
+        return list.indexOf(target);
     }
 }

@@ -25,10 +25,14 @@ public class Practice_01 {
     }
 
     public static Integer findSecondLargest(ArrayList<Integer> list) {
-        int max = list.get(0);
+        if(list == null || list.size() < 2){
+            return -1;
+        }
+
+        int max = -1;
         int secondMax = -1;
 
-        for (int i = 1; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             int num = list.get(i);
             if(num > max) {
                 secondMax = max;
