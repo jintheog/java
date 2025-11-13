@@ -34,16 +34,22 @@ public class Practice_02 {
     public static Map<String, Integer> countWordFrequency(String[] words) {
         // 구현 필요
         HashMap<String, Integer> map = new HashMap<>();
-
-        for(String key : words) {
-           int count = map.getOrDefault(key, 0);
-           map.put(key, count + 1);
-        }
+//
+//        for(String key : words) {
+//           int count = map.getOrDefault(key, 0);
+//           map.put(key, count + 1);
+//        }
 
 //        for(String key : words) {
 //          map.putIfAbsent(key, 0);
 //          map.put(key, map.get(key) + 1);
 //        }
+
+        for(String word : words) {
+            if(map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
+            } else map.put(word, 1);
+        }
 
         return map;
     }

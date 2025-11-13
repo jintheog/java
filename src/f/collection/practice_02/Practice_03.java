@@ -31,13 +31,9 @@ public class Practice_03 {
         // 구현 필요
         HashMap<Character, List<Integer>> map = new HashMap<>();
         for(int i = 0; i < str.length(); i++){
-            int idx = str.indexOf(str.charAt(i));
             map.putIfAbsent(str.charAt(i), new ArrayList<>());
-
-            map.get(str.charAt(i)).add(idx);
-
+            map.get(str.charAt(i)).add(i);
         }
-
 
         return map;
     }
