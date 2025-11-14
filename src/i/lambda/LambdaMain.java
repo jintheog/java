@@ -42,8 +42,33 @@ public class LambdaMain {
         System.out.println(calc.apply(5, 10));
 
         Calculator cal = (a, b) -> a + b;
+        System.out.println(cal.calculate(1, 2));
 
+        Calculator cal2 = (a, b) -> a * b;
+        System.out.println(cal2.calculate(10, 10));
 
+        Supplier<String> s = () -> "hello";
+        System.out.println(s.get());
 
+        Consumer<String> c = (str) ->  System.out.println(str);
+        c.accept("hello");
+
+        Function<String, Integer> f = (str) -> str.length();
+        System.out.println(f.apply("hello"));
+
+        // 메서드 참조 ::
+
+        Function<String, Integer> parser1 = (str) ->  Integer.parseInt(str);
+        Function<String, Integer> parser2 = Integer::parseInt;
+
+        int result = parser2.apply("123");
+        System.out.println(result);
+
+        String prefix = "hihi";
+        Function<String, String> greeter1 = name -> prefix.concat(name);
+        Function<String, String> greeter2 = prefix::concat;
+
+        String helloResult = greeter1.apply("kim");
+        System.out.println(helloResult);
     }
 }
