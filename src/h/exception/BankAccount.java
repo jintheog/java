@@ -1,6 +1,6 @@
 package h.exception;
 
-class InsufficientBalanceException extends Exception{
+class InsufficientBalanceException extends RuntimeException{//Exception{ 을 상속 받으면 : //unchecked와 checked 둘다 상속
     private int current;
     private int request;
 
@@ -20,7 +20,7 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void withdraw(int amount) throws  InsufficientBalanceException{
+    public void withdraw(int amount) {
         if(balance < amount){
             throw new InsufficientBalanceException(balance, amount);
         }

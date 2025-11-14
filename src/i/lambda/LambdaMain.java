@@ -3,6 +3,13 @@ package i.lambda;
 import java.util.Comparator;
 import java.util.function.*;
 
+@FunctionalInterface
+interface Calculator{
+    int calculate(int a, int b);
+    //int calculate2(int a, int b); //단 1개의 메서드가 있는 인터페이스만 사용 가능. 람다식이 어디로 전달 되어야 하는지 알 수 없음.
+}
+
+
 
 public class LambdaMain {
     public static void main(String[] args) {
@@ -32,6 +39,11 @@ public class LambdaMain {
           int sum = a + b;
           return sum / 2;
         };
-        calc.apply(5, 10);
+        System.out.println(calc.apply(5, 10));
+
+        Calculator cal = (a, b) -> a + b;
+
+
+
     }
 }
