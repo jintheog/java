@@ -48,5 +48,45 @@ public class StreamMain {
                 .filter(n -> n % 2 == 0)
                 .collect(Collectors.toList());
         System.out.println(filtered);
+
+        List<String> words = Arrays.asList("Apple", "Banana", "Cherry");
+        List<String> longWords = words.stream()
+                .filter(s -> s.length() > 5)
+                .collect(Collectors.toList());
+        System.out.println(longWords);
+
+
+        List<Integer> squares = numbers.stream()
+                .map(n -> n * n)
+                .collect(Collectors.toList());
+        System.out.println(squares);
+
+        List<String> upper =  words.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        System.out.println(upper);
+
+        List<Integer> sorted = numbers.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        System.out.println(sorted);
+
+        numbers.stream().forEach(System.out::println);
+        numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .forEach(n -> System.out.print(n + " "));
+
+        Map<String, Integer> map = words.stream()
+                .collect(Collectors.toMap(s -> s + ".", String::length));
+        System.out.println(map);
+
+        int result = numbers.stream()
+                .reduce(1, (a, b) -> a * b);
+        System.out.println(result);
+
+        long count = numbers.stream().count();
+        System.out.println(count);
+
+
     }
 }
