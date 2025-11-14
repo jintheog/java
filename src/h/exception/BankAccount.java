@@ -1,5 +1,18 @@
 package h.exception;
 
+class InsufficientBalanceException extends Exception{
+    private int current;
+    private int request;
+
+    public InsufficientBalanceException(int current, int request) {
+        super("잔액부족"+current + " / " + request);
+        this.current = current;
+        this.request = request;
+    }
+}
+
+
+
 public class BankAccount {
     private int balance;
 
@@ -7,14 +20,23 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(int amount) throws  InsufficientBalanceException{
+        if(balance < amount){
+            throw new InsufficientBalanceException(balance, amount);
+        }
         balance -= amount;
     }
 
 
     public static void main(String[] args) {
         BankAccount ba = new BankAccount(10000);
-        ba.withdraw(1000);
+        try{
+            ba.withdraw(100000);
+
+        } catch(InsufficientBalanceException e) {
+            System.out.println("problem");
+        }
         System.out.println(ba.balance);
     }
+
 }
